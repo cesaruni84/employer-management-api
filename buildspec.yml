@@ -4,10 +4,9 @@ phases:
   install:
     runtime-versions:
       java: corretto11
-    commands:
-      - echo Installing Maven...
-      - apt-get update && apt-get install -y maven
-
+    #commands:
+    #  - echo Installing Maven...
+    #  - apt-get update && apt-get install -y maven
   pre_build:
     commands:
       - echo Validating the project...
