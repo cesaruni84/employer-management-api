@@ -3,3 +3,5 @@ insert into employer(id, first_Name, last_Name, salary) values(2, 'Phoebe', 'Whi
 insert into employer(id, first_Name, last_Name, salary) values(3, 'Yasmin', 'Goodwin', 17500);
 insert into employer(id, first_Name, last_Name, salary) values(4, 'Adele', 'Ward', 31000);
 insert into employer(id, first_Name, last_Name, salary) values(5, 'Susan', 'Carlson', 18000);
+insert into employer(id, first_Name, last_Name, salary) values(6, 'Lily', 'Henderson', 25000);
+insert into employer(id, first_Name, last_Name, salary) values(7, 'Cesa', 'Pérez', 25000);
