@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk-11
+    commands:
+      - echo Installing Maven...
+      - apt-get update && apt-get install -y maven
+
+  pre_build:
+    commands:
+      - echo Validating the project...
+      - mvn validate
+
+  build:
+    commands:
+      - echo Building the project...
+      - mvn package -DskipTests=true
+
+artifacts:
+  files:
+    - target/spring-boot-employer-management-api-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
