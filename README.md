@@ -8,3 +8,15 @@ For more details please see this **[medium post](https://medium.com/quick-code/s
 
 ## License
 Copyright © 2020 by Abderraouf Makhlouf <makhlouf.raouf@gmail.com>
+
+
+## Contributing
+Create Image
+```bash
+docker build -t api-test .
+```
+
+Create Container
+```bash
+docker run -it -p 8443:8443 --name container-api-test api-test 
+```
