@@ -15,7 +15,7 @@ RUN mvn clean package
 FROM openjdk:11-jre-slim
 
 # Copia el archivo JAR construido por Maven a la imagen
-COPY target/spring-boot-employer-management-api-0.0.1-SNAPSHOT.jar /app/api-test.jar
+COPY --from=builder target/spring-boot-employer-management-api-0.0.1-SNAPSHOT.jar /app/api-test.jar
 
 # Expone el puerto 8080, que es el puerto por defecto para las aplicaciones Spring Boot
 EXPOSE 8080
