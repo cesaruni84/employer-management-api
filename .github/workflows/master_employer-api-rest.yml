@@ -3,7 +3,7 @@
 # Author: Cesar Perez
 # Event: "Semana de Impacto BCP - 2024"
 
-name: Compile, Test, Build And Deploy API Rest to Azure Web App - employer-api-rest
+name: Deploy API Rest to Azure Web App - employer-api-rest
 
 on:
   push:
