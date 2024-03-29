@@ -60,6 +60,16 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
+      - name: generate report codecov
+        run: mvn cobertura:cobertura
+      - name: Upload coverage
+        if: success()
+        run: |
+          curl -s https://codecov.io/bash | bash
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        shell: bash
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
