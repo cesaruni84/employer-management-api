@@ -39,9 +39,19 @@ jobs:
       - name: Test with Maven
         run: mvn test
 
-  build:
+  coverage:
     runs-on: ubuntu-latest
     needs: test
+    steps:
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: cesaruni84/employer-management-api
+
+  build:
+    runs-on: ubuntu-latest
+    needs: coverage
 
     steps:
       - uses: actions/checkout@v4
