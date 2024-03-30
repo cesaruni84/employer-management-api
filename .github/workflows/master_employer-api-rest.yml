@@ -39,21 +39,21 @@ jobs:
       - name: Test with Maven
         run: mvn test
 
-      - name: Upload coverage reports to Codecov
-        # uses: codecov/codecov-action@v4.0.1
-        uses: codecov/codecov-action@v3
+      - name: Generate Jacoco coverage report
+        run: mvn jacoco:report
+
+#      - name: Upload coverage reports to Codecov
+#        # uses: codecov/codecov-action@v4.0.1
+#        uses: codecov/codecov-action@v4
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage CodeCov
+        if: success()
+        run: |
+          curl -s https://codecov.io/bash | bash
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        if: ${{ !cancelled() }}
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./.coverage_tests.xml
-          name: codecov-${{ matrix.os_name }}
-          fail_ci_if_error: true
-          verbose: true
+        shell: bash
 
   build:
     runs-on: ubuntu-latest
