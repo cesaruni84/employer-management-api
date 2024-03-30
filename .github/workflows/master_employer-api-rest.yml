@@ -45,6 +45,16 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        if: ${{ !cancelled() }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./.coverage_tests.xml
+          name: codecov-${{ matrix.os_name }}
+          fail_ci_if_error: true
+          verbose: true
+
   build:
     runs-on: ubuntu-latest
     needs: test
@@ -60,15 +70,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
-      - name: generate report codecov
-        run: mvn cobertura:cobertura
-      - name: Upload coverage
-        if: success()
-        run: |
-          curl -s https://codecov.io/bash | bash
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        shell: bash
+#      - name: generate report codecov
+#        run: mvn cobertura:cobertura
+#      - name: Upload coverage
+#        if: success()
+#        run: |
+#          curl -s https://codecov.io/bash | bash
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#        shell: bash
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
