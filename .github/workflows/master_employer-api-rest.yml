@@ -39,8 +39,17 @@ jobs:
       - name: Test with Maven
         run: mvn test
 
-      - name: Generate Jacoco coverage report
-        run: mvn jacoco:report
+#      - name: Generate Jacoco coverage report
+#        run: mvn jacoco:report
+
+      - name: Run tests with Jacoco
+        run: mvn jacoco:prepare-agent jacoco:report
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: target/site/jacoco/index.html
 
 #      - name: Upload coverage reports to Codecov
 #        # uses: codecov/codecov-action@v4.0.1
