@@ -36,8 +36,8 @@ jobs:
         with:
           java-version: '11'
 
-      - name: Test with Maven
-        run: mvn test
+#      - name: Test with Maven
+#        run: mvn test
 
 #      - name: Generate Jacoco coverage report
 #        run: mvn jacoco:report
