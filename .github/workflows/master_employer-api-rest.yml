@@ -45,7 +45,7 @@ jobs:
       - name: Run tests with Jacoco
         run: mvn jacoco:prepare-agent jacoco:report
 
-      - name: Upload coverage report
+      - name: Upload coverage report Jacoco
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
