@@ -35,7 +35,7 @@ class JsonUtilTest {
     void readJsonFromFileThrowsException() {
         String filePath = "src/test/resources/nonexistent.json";
         Employer employer = JsonUtil.readJsonFromFile(filePath);
-        assertEquals(null, employer, "The returned employer should be null");
+        assertNull(employer, "The returned employer should be null");
 
 //        try (MockedStatic<Files> mockedFiles = Mockito.mockStatic(Files.class)) {
 //            mockedFiles.when(() -> Files.readAllBytes(Paths.get(filePath))).thenThrow(IOException.class);
@@ -48,6 +48,6 @@ class JsonUtilTest {
     void readJsonArrayFromFileThrowsException() {
         String filePath = "src/test/resources/nonexistent.json";
         List<Employer> employers = JsonUtil.readJsonArrayFromFile(filePath);
-        assertEquals(null, employers, "The returned list of employers should be null");
+        assertNull(employers, "The returned list of employers should be null");
     }
 }

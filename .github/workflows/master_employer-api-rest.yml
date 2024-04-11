@@ -7,7 +7,7 @@ name: Deploy API Rest to Azure Web App - employer-api-rest
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
 
 jobs:
   compile:
