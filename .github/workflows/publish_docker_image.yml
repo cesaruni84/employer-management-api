@@ -61,7 +61,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'employer-api-rest'
+          app-name: 'webapp-api-rest-employer'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           slot-name: 'Production'
           images: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-employer-management-api:latest
